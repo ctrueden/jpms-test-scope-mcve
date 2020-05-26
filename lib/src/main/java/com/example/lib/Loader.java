@@ -10,10 +10,16 @@ import java.util.Enumeration;
 public class Loader {
 
 	public static void load() throws IOException {
-		for (final String element : System.getProperty("java.class.path").split( ":")) {
-			System.out.println("- " + element);
+		System.out.println("Class path:");
+		final String classPath = System.getProperty("java.class.path");
+		if (classPath.isEmpty()) {
+			System.out.println("<NOTHING>");
 		}
-//		final ClassLoader cl = Loader.class.getClassLoader();
+		else {
+			for (final String element : classPath.split(":", -1)) {
+				System.out.println("- " + element);
+			}
+		}
 		final ClassLoader cl = ClassLoader.getSystemClassLoader();
 		System.out.println("Class loader = " + cl);
 		final Enumeration<URL> pluginEntries = cl.getResources("META-INF/stuff/plugins");

@@ -10,6 +10,10 @@
 
 	<artifactId>app</artifactId>
 
+	<properties>
+		<main-class>com.example.app.App</main-class>
+	</properties>
+
 	<dependencies>
 		<dependency>
 			<groupId>com.example</groupId>
