@@ -38,4 +38,9 @@ public class Loader {
 		}
 		System.out.println("Done processing " + count + " plugin entry files");
 	}
+	
+	public static void loadApp() throws ClassNotFoundException {
+		final ClassLoader cl = ClassLoader.getSystemClassLoader();
+		cl.loadClass("com.example.app.App");
+	}
 }
